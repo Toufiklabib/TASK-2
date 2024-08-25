@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 
@@ -8,7 +8,7 @@ const App = () => {
   const [teams, setTeam] = useState(null);
   const [items, setItems] = useState([
     {label: 'Argentina', value: 'argentina'},
-    {label: 'Brasil', value: 'brasil'},
+    {label: 'Brazil', value: 'brasil'},
     {label: 'Germany', value: 'germany'},
     {label: 'England', value: 'england'},
   ]);
@@ -16,7 +16,6 @@ const App = () => {
     { id: 1, name: 'Leo Messi', age: 37 },
     { id: 2, name: 'Di María', age: 37 },
     { id: 3, name: 'Lautaro Martinez', age: 37 },
-    { id: 4, name: 'Leandro Paredes', age: 37 },
     { id: 5, name: 'Rodrigo de Paul', age: 37 },
     { id: 6, name: 'Enzo Farnadez', age: 37 },
     { id: 7, name: 'Mac Alister', age: 37 },
@@ -28,7 +27,15 @@ const App = () => {
   const brasils = [
     { id: 12, name: 'Neymar Jr', age: 37 },
     { id: 13, name: 'Raphinha', age: 37 },
-    { id: 14, name: 'Vini Js', age: 37 },
+    { id: 14, name: 'Rodrygo', age: 37 },
+    { id: 21, name: 'Endrik', age: 37 },
+    { id: 22, name: 'Lucas Paqueta', age: 37 },
+    { id: 23, name: 'Gabriel', age: 37 },
+    { id: 24, name: 'Danilo', age: 37 },
+    { id: 25, name: 'Marquinhos', age: 37 },
+    { id: 26, name: 'Éder Militao', age: 37 },
+    { id: 27, name: 'Alisson Becker', age: 37 },
+    { id: 28, name: 'Éderson', age: 37 },
   ];
   const germanys = [
     { id: 15, name: 'Thomas Mular', age: 37 },
@@ -58,7 +65,7 @@ const App = () => {
       setTeam(englands);
      }
      else{
-      setTeam('')
+      setTeam('');
      }
   };
 
@@ -66,11 +73,10 @@ const App = () => {
     if (value) {
       handleValueChange(value);
     }
-  }, [value]);
+  },[value] );
 
   return (
     <View style={styles.continer} >
-      <Text style={styles.heading} >Select The Team</Text>
       <DropDownPicker
         open={open}
         value={value}
@@ -79,6 +85,7 @@ const App = () => {
         setValue={setValue}
         setItems={setItems}
         style={styles.dropDown}
+        placeholder="Select Your Favorite Team"
       />
        {
         teams && (
